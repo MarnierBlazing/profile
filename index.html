@@ -153,48 +153,6 @@
       letter-spacing: 0.14em;
     }
 
-    .hero-arrow {
-      position: absolute;
-      right: 2px;
-      top: 122px;
-      width: min(33vw, 320px);
-      height: min(33vw, 320px);
-      opacity: 0.92;
-      pointer-events: none;
-    }
-
-    .hero-arrow::before,
-    .hero-arrow::after {
-      content: "";
-      position: absolute;
-      background: var(--line);
-    }
-
-    .hero-arrow::before {
-      right: 0;
-      top: 0;
-      width: 100%;
-      height: 6px;
-    }
-
-    .hero-arrow::after {
-      right: 0;
-      top: 0;
-      width: 6px;
-      height: 100%;
-    }
-
-    .hero-arrow .diag {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 6px;
-      height: 142%;
-      transform-origin: top right;
-      transform: rotate(45deg);
-      background: var(--line);
-    }
-
     .hero-marks {
       display: flex;
       justify-content: flex-end;
@@ -580,8 +538,6 @@
             <span></span><span></span><span></span><span></span>
           </div>
         </div>
-
-        <div class="hero-arrow" aria-hidden="true"><span class="diag"></span></div>
       </div>
     </section>
 
