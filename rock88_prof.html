@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rocket88 / Index</title>
+  <meta name="description" content="夢小説・短編ゲームのリンク集" />
+  <style>
+    :root {
+      --bg: #f3eee3;
+      --panel: #fbf8f1;
+      --line: #544c43;
+      --subline: #8b8175;
+      --ink: #2b2825;
+      --muted: #5f5a54;
+      --accent: #2f6f73;
+      --accent-2: #c56a3d;
+      --shadow: rgba(43, 40, 37, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,0.35), rgba(255,255,255,0.05)),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 27px,
+          rgba(84, 76, 67, 0.05) 27px,
+          rgba(84, 76, 67, 0.05) 28px
+        ),
+        var(--bg);
+      font-family:
+        "Helvetica Neue",
+        "Arial",
+        "Hiragino Sans",
+        "Yu Gothic",
+        "Meiryo",
+        sans-serif;
+      line-height: 1.75;
+      letter-spacing: 0.02em;
+    }
+
+    .wrap {
+      width: min(92vw, 760px);
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .plate {
+      position: relative;
+      background: var(--panel);
+      border: 2px solid var(--line);
+      box-shadow:
+        0 0 0 4px rgba(255,255,255,0.55) inset,
+        0 10px 24px var(--shadow);
+      overflow: hidden;
+    }
+
+    .plate::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(84, 76, 67, 0.25);
+      pointer-events: none;
+    }
+
+    header.plate {
+      padding: 28px 24px 24px;
+      margin-bottom: 18px;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(84, 76, 67, 0.25);
+      padding-bottom: 10px;
+    }
+
+    .name {
+      margin: 0;
+      font-size: clamp(2rem, 6vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 38em;
+    }
+
+    .serial {
+      margin-top: 18px;
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: linear-gradient(to right, rgba(47,111,115,0.08), rgba(197,106,61,0.08));
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    section.plate {
+      padding: 22px 20px 20px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--line);
+    }
+
+    .section-head::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--accent);
+      background:
+        linear-gradient(135deg, transparent 45%, var(--accent) 46%, var(--accent) 54%, transparent 55%);
+      flex: 0 0 auto;
+    }
+
+    .tendency-text {
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid rgba(84, 76, 67, 0.45);
+      color: var(--muted);
+      font-size: 0.85rem;
+      background: rgba(255,255,255,0.55);
+    }
+
+    .links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .link-card {
+      display: block;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+      border: 2px solid var(--line);
+      background:
+        linear-gradient(to right, rgba(47,111,115,0.08), rgba(255,255,255,0.85) 28%, rgba(255,255,255,0.92)),
+        var(--panel);
+      padding: 14px 16px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      box-shadow: 0 2px 0 rgba(84, 76, 67, 0.12);
+    }
+
+    .link-card:hover,
+    .link-card:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 16px rgba(43, 40, 37, 0.09);
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .link-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .link-label {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .link-tag {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .link-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .notes {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .accent-line {
+      height: 6px;
+      margin: 18px 0 0;
+      background:
+        linear-gradient(to right,
+          var(--accent) 0 35%,
+          var(--accent-2) 35% 58%,
+          var(--line) 58% 100%);
+      border: 1px solid rgba(84, 76, 67, 0.3);
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(94vw, 760px);
+        padding-top: 18px;
+      }
+
+      header.plate,
+      section.plate {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .topline {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .link-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="plate">
+      <div class="topline">
+        <span>Personal Index</span>
+        <span>Signal / Archive / Access</span>
+      </div>
+
+      <h1 class="name">Rocket88</h1>
+      <p class="subtitle">
+        夢小説と短編ゲームのための簡易インデックス。
+        静かな関係性、偏執、皮肉っぽい会話、機械と人のあいだに生じる妙な情緒をよく扱います。
+      </p>
+
+      <div class="serial">Unit Ref: R-88 / Mid-Century Utility Panel</div>
+      <div class="accent-line" aria-hidden="true"></div>
+    </header>
+
+    <div class="grid">
+      <section class="plate" aria-labelledby="tendency-title">
+        <h2 class="section-head" id="tendency-title">Tendency</h2>
+        <p class="tendency-text">
+          主にトランスフォーマー中心の夢小説と短編ゲームを置いています。
+          G1寄り。名前変換もの、選択式の短編、静かな執着、すれ違い、わずかにひねくれた親愛表現が多めです。
+          作品ごとの注意書きはリンク先をご確認ください。
+        </p>
+        <div class="chips" aria-label="傾向タグ">
+          <span class="chip">G1</span>
+          <span class="chip">夢小説</span>
+          <span class="chip">名前変換</span>
+          <span class="chip">短編ゲーム</span>
+          <span class="chip">静かな執着</span>
+          <span class="chip">すれ違い</span>
+          <span class="chip">皮肉まじりの会話</span>
+        </div>
+      </section>
+
+      <section class="plate" aria-labelledby="links-title">
+        <h2 class="section-head" id="links-title">Links</h2>
+        <div class="links">
+          <a class="link-card" href="https://bsky.app/" target="_blank" rel="noopener noreferrer">
+            <div class="link-top">
+              <span class="link-label">Bluesky</span>
+              <span class="link-tag">Social</span>
+            </div>
+            <p class="link-desc">告知・進捗・短文メモなど。</p>
+          </a>
+
+          <a class="link-card" href="https://x.com/" target="_blank" rel="noopener noreferrer">
+            <div class="link-top">
+              <span class="link-label">X</span>
+              <span class="link-tag">Social</span>
+            </div>
+            <p class="link-desc">告知や雑多な話題の投下先。</p>
+          </a>
+
+          <a class="link-card" href="https://www.pixiv.net/" target="_blank" rel="noopener noreferrer">
+            <div class="link-top">
+              <span class="link-label">pixiv</span>
+              <span class="link-tag">Archive</span>
+            </div>
+            <p class="link-desc">小説本文の掲載先。</p>
+          </a>
+
+          <a class="link-card" href="https://example.com/" target="_blank" rel="noopener noreferrer">
+            <div class="link-top">
+              <span class="link-label">Game</span>
+              <span class="link-tag">Interactive</span>
+            </div>
+            <p class="link-desc">選択式短編ゲーム。ブラウザでプレイできます。</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="plate" aria-labelledby="note-title">
+        <h2 class="section-head" id="note-title">Note</h2>
+        <p class="notes">
+          当サイト内の作品は二次創作を含みます。公式・版権元各位とは関係ありません。
+          閲覧の際は各作品ページの注意書きをご確認ください。
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      Rocket88 / Index Page / Updated 2026
+    </footer>
+  </main>
+</body>
+</html>
